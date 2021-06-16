@@ -68,8 +68,8 @@ router.post("/", withAuth, (req, res) => {
   // expects {title: 'Coding is fun!', article: 'Everyone should know that coding is fun', user_id: 1}
   Post.create({
     title: req.body.title,
-    aritcle: req.body.aritcle,
-    user_id: req.session.user_id,
+    article: req.body.article,
+    user_id: req.session.id,
   })
     .then((dbPostData) => res.json(dbPostData))
     .catch((err) => {

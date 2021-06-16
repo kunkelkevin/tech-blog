@@ -1,7 +1,10 @@
-      <div class="title">
-        <p>{{title}}</p>
-        <p>{{user.username}} {{format_date created_at}}</p>
-      </div>
+<div class="title">
+  <p>{{post.title}}</p>
+  <p>{{post.user.username}} {{format_date post.createdAt}}</p>
+</div>
+<div class="text">
+  <p>{{post.article}}</p>
+</div>
 
 {{#if loggedIn}}
   <form class="comment-form">
@@ -16,12 +19,12 @@
 {{/if}}
 
 <div class="comments">
-  {{#each comment}}
+  {{#each post.comments}}
     <section class="comment">
       <div class="meta">
         {{user.username}}
         on
-        {{format_date created_at}}
+        {{format_date createdAt}}
       </div>
       <div class="text">
         {{comment_text}}

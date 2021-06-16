@@ -6,11 +6,11 @@ const { Post, User, Comment } = require("../models");
 router.get("/", (req, res) => {
   console.log("======================");
   Post.findAll({
-    attributes: ["id", "article", "title", "created_at"],
+    attributes: ["id", "article", "title", "createdAt"],
     include: [
       {
         model: Comment,
-        attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
+        attributes: ["id", "comment_text", "post_id", "user_id", "createdAt"],
         include: {
           model: User,
           attributes: ["username"],
@@ -24,7 +24,7 @@ router.get("/", (req, res) => {
   })
     .then((dbPostData) => {
       const posts = dbPostData.map((post) => post.get({ plain: true }));
-
+      //   res.json(posts);
       res.render("homepage", {
         posts,
         loggedIn: req.session.loggedIn,
@@ -42,11 +42,11 @@ router.get("/post/:id", (req, res) => {
     where: {
       id: req.params.id,
     },
-    attributes: ["id", "article", "title", "created_at"],
+    attributes: ["id", "article", "title", "createdAt"],
     include: [
       {
         model: Comment,
-        attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
+        attributes: ["id", "comment_text", "post_id", "user_id", "createdAt"],
         include: {
           model: User,
           attributes: ["username"],
@@ -65,7 +65,6 @@ router.get("/post/:id", (req, res) => {
       }
 
       const post = dbPostData.get({ plain: true });
-
       res.render("single-post", {
         post,
         loggedIn: req.session.loggedIn,
