@@ -1,8 +1,8 @@
 <div class="title">
   <p>{{post.title}}</p>
-  <p>{{post.user.username}} {{format_date post.createdAt}}</p>
+  <p>written by {{post.user.username}} on {{format_date post.createdAt}}</p>
 </div>
-<div class="text">
+<div class="article">
   <p>{{post.article}}</p>
 </div>
 
@@ -21,14 +21,15 @@
 <div class="comments">
   {{#each post.comments}}
     <section class="comment">
+      <div class="text">
+        {{comment_text}}
+      </div>
       <div class="meta">
         {{user.username}}
         on
         {{format_date createdAt}}
       </div>
-      <div class="text">
-        {{comment_text}}
-      </div>
+
     </section>
   {{/each}}
 </div>

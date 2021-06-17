@@ -36,6 +36,22 @@ button {
 button:hover {
   background-color: #3486eb;
 }
+ul {
+  list-style-type: none;
+}
+
+.title {
+  background-color: #333;
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 16px;
+  color: #ccc;
+  border-radius: 4px;
+}
+
+li {
+  margin-bottom: 16px;
+}
 
 .post-list {
   margin: 0;
@@ -44,9 +60,18 @@ button:hover {
 
 textarea,
 input {
+  width: auto;
+  display: block;
   padding: 0.5%;
   border-radius: 5px;
   border: 1px solid #ccc;
+  padding: 8px;
+}
+
+.article {
+  border: solid 1px;
+  margin-bottom: 22px;
+  padding: 4px 12px;
 }
 
 textarea:focus,
